@@ -29,6 +29,7 @@ const CustomLink = ({
       href={href}
       onClick={onClick}
       className={`${className}  relative group`}
+      //scroll={false}
     >
       {title}
       <span
@@ -54,6 +55,17 @@ const Navbar = () => {
     setToggleNav(!toggleNav);
   };
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    //remove everything before the hash
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, '');
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
+
   useEffect(() => {
     const handleShadow = () => {
       if (window.scrollY >= 90) {
@@ -66,19 +78,33 @@ const Navbar = () => {
     window.addEventListener('scroll', handleShadow);
   }, []);
   return (
-    <div
-      className={`fixed w-full h-20  shadow-${shadow ? 'xl' : 'none'} z-[100] `}
+    <header
+      className={`sticky left-0 top-0 right-0 w-full h-20  shadow-${
+        shadow ? 'xl' : 'none'
+      } z-[100] `}
     >
       <div className="p-4 2xl:px-8 flex items-center justify-between bg-white dark:bg-gray-900">
         <Logo />
 
         <div className=" hidden md:flex gap-4">
-          <CustomLink href="/" title="Home" />
-          <CustomLink href="/#skills" title="Skills" />
-          <CustomLink href="/#services" title="Services" />
-          <CustomLink href="/#projects" title="Projects" />
-          <CustomLink href="/#testimonials" title="Testimonials" />
-          <CustomLink href="/#about" title="About me" />
+          <CustomLink href="/#home" title="Home" onClick={handleScroll} />
+          <CustomLink href="/#skills" title="Skills" onClick={handleScroll} />
+          <CustomLink
+            href="/#services"
+            title="Services"
+            onClick={handleScroll}
+          />
+          <CustomLink
+            href="/#projects"
+            title="Projects"
+            onClick={handleScroll}
+          />
+          <CustomLink
+            href="/#testimonials"
+            title="Testimonials"
+            onClick={handleScroll}
+          />
+          <CustomLink href="/#about" title="About me" onClick={handleScroll} />
           <CustomLink href="/casestudies" title="Case Studies" />
           <CustomLink href="/contact" title="Contact" />
           <button
@@ -100,6 +126,8 @@ const Navbar = () => {
           />
         </div>
       </div>
+
+      {/* Mobile view Menu */}
       {
         <div
           className={
@@ -174,7 +202,7 @@ const Navbar = () => {
           </div>
         </div>
       }
-    </div>
+    </header>
   );
 };
 

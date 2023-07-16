@@ -2,11 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+:root {
+  --before-line-width: 388px;
+  --before-line-md-width: 200px;
+  --before-line-sm-width: 260px;
 }
+.highlight {
+  @apply absolute content-[""] w-[var(--before-line-sm-width)] sm:w-[var(--before-line-width)] border-b-[14px] border-b-orange-400;
+}
+
 @layer base {
   h2 {
-    @apply font-bold text-3xl text-gray-700 dark:text-light;
+    @apply font-bold text-2xl md:text-3xl text-center text-gray-700 dark:text-light;
   }
+
+  /* html {
+    scroll-behavior: smooth;
+  } */
 }

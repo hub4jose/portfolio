@@ -82,3 +82,17 @@ export type Education = {
 
   years: string;
 };
+
+export type Service = {
+  _id: string;
+
+  _createdAt: Date;
+
+  title: string;
+
+  slug: string;
+
+  content: PortableTextBlock[];
+
+  images: any[];
+};

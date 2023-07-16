@@ -4,6 +4,7 @@ import { BreifcaseIcon, CalendarIcon, GraduationIcon } from './Icons';
 import { getEducation, getExperiences } from '@/sanity/sanity-utils';
 
 import { Experience, Education } from '@/types';
+import { PortableText } from '@portabletext/react';
 
 const Qualification = () => {
   const [qualification, setQualification] = useState('Education');
@@ -26,31 +27,45 @@ const Qualification = () => {
   }, []);
 
   return (
-    <div id="about" className="w-full h-screen items-center">
-      <section className=" max-w-6xl h-full mt-16 p-6 mx-auto flex flex-col justify-center items-center gap-10">
+    <div id="about" className="w-full lg:h-screen items-center">
+      <section className=" mt-20 mb-20 md:mt-0  max-w-6xl lg:h-full  px-6 mx-auto flex flex-col justify-center items-center gap-10">
         <h2 className="flex justify-center ">Qualification</h2>
-        <span className="text-sm font-semibold">My Personal Journey</span>
-        <div className="flex flex-row gap-24">
+        <span className="-mt-8 text-sm text-gray-500 font-semibold dark:text-light">
+          My Personal Journey
+        </span>
+        <div className="flex flex-row gap-12 md:gap-24">
           <button
             onClick={() => {
               setQualification('Education');
             }}
-            className={`flex gap-1 hover:outline outline-1 rounded-md p-2 ${
-              qualification === 'Education' ? 'bg-cyan-100' : ''
+            className={`flex gap-1 hover:outline outline-1 rounded-md p-2 items-center dark:text-light ${
+              qualification === 'Education' ? 'bg-blue-500 text-light' : ''
             }`}
           >
-            <GraduationIcon className={''} width={30} height={30} />
+            <GraduationIcon
+              className={
+                qualification === 'Education' ? 'fill-light' : 'dark:fill-light'
+              }
+              width={30}
+              height={30}
+            />
             <div className="text-xl font-semibold">Education</div>
           </button>
           <button
             onClick={() => {
               setQualification('Experience');
             }}
-            className={`flex gap-1 hover:outline outline-1 rounded-md p-2 ${
-              qualification !== 'Education' ? 'bg-cyan-100' : ''
+            className={`flex gap-1 hover:outline outline-1 rounded-md p-2 items-center dark:text-light  ${
+              qualification !== 'Education' ? 'bg-blue-500 text-light' : ''
             }`}
           >
-            <BreifcaseIcon className={''} width={30} height={30} />
+            <BreifcaseIcon
+              className={
+                qualification !== 'Education' ? 'fill-light' : 'dark:fill-light'
+              }
+              width={30}
+              height={30}
+            />
             <div className="text-xl font-semibold">Experience</div>
           </button>
         </div>
@@ -134,6 +149,9 @@ const Qualification = () => {
                       height={24}
                     />
                     <div>{exp.years}</div>
+                  </div>
+                  <div className="hidden sm:flex text-sm font-[400] text-gray-700 dark:text-light mt-5">
+                    <PortableText value={exp.details} />
                   </div>
                 </div>
                 {i % 2 === 0 && (

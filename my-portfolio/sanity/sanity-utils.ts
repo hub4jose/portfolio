@@ -1,7 +1,14 @@
 import { createClient, groq } from 'next-sanity';
 
 import clientConfig from './config/client-config';
-import { Skill, Project, Testimonial, Experience, Education } from '@/types';
+import {
+  Skill,
+  Project,
+  Testimonial,
+  Experience,
+  Education,
+  Service,
+} from '@/types';
 
 export const getSkills = async (): Promise<Skill[]> => {
   const client = createClient(clientConfig);
@@ -101,6 +108,22 @@ export const getEducation = async (): Promise<Education[]> => {
         course,
         "images":images[]{asset->{url}},
         years
+    }`
+  );
+};
+
+export const getServices = async (): Promise<Service[]> => {
+  const client = createClient(clientConfig);
+
+  return client.fetch(
+    groq`*[_type=="service"]{
+        _id,
+        _createdAt,
+        title,
+        "slug": slug.current,
+        content,
+        "images":images[]{asset->{url}},
+        
     }`
   );
 };
