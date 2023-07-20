@@ -7,7 +7,10 @@ const Services = async () => {
   return (
     <div id="services" className="w-full lg:h-screen  items-center">
       <section className="mt-20 md:mt-0 max-w-6xl lg:h-full  p-6 mx-auto flex flex-col justify-center items-center gap-10">
-        <h2 className="flex justify-center">What service do I provide</h2>
+        <h2 className="relative flex justify-center">
+          What service do I provide
+          <span className="highlight w-[88px] md:w-[120px] border-b-[15px] mt-[18px] mr-20 md:mr-24 "></span>
+        </h2>
         <div className="mt-5  justify-self-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
           {services.map((service, i) => (
             <div

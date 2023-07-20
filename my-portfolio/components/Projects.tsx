@@ -11,7 +11,10 @@ const Projects = async () => {
     <div id="projects" className="w-full lg:h-screen  items-center">
       <section className="mt-20 md:mt-0 max-w-6xl lg:h-full p-6 mx-auto flex flex-col justify-center items-center gap-10">
         <motion.div variants={textVariant()}>
-          <h2 className="flex justify-center">My Projects</h2>
+          <h2 className=" relative flex justify-center">
+            Featured Projects
+            <span className="highlight w-[100px] md:w-[144px] border-b-[15px] mt-[18px] mr-[96px] md:mr-[140px]"></span>
+          </h2>
         </motion.div>
 
         <div className="w-full flex justify-center">

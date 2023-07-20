@@ -16,7 +16,10 @@ const Testimonials = async () => {
   return (
     <div id="testimonials" className="w-full lg:h-screen  items-center">
       <section className=" mt-20 md:mt-0 max-w-4xl lg:h-full px-4  mx-auto flex flex-col justify-center items-center">
-        <h2 className="flex justify-center">What they say about me</h2>
+        <h2 className="flex justify-center">
+          What they say about me
+          <span className="highlight w-[100px] md:w-[144px] border-b-[15px] mt-[18px] mr-[52px] md:mr-[66px]"></span>
+        </h2>
         <Swiper
           effect={'coverflow'}
           initialSlide={3}

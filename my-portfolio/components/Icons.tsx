@@ -3,7 +3,7 @@ export const MoonIcon = ({ className, ...rest }) => (
     xmlns="http://www.w3.org/2000/svg"
     width={30}
     height={30}
-    className={` ${className}`}
+    className={`w-full h-auto ${className}`}
     {...rest}
   >
     <path
@@ -18,8 +18,8 @@ export const MoonIcon = ({ className, ...rest }) => (
 export const SunIcon = ({ className, ...rest }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={40}
-    height={40}
+    width={30}
+    height={30}
     viewBox="0 0 256 256"
     className={`w-full h-auto ${className}`}
     {...rest}
