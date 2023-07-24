@@ -21,12 +21,12 @@ const Skills = async () => {
                 <Image
                   src={skill?.images[0]?.asset.url}
                   alt={skill?.title}
-                  width={80}
-                  height={80}
-                  className="rounded-full grayscale-0 hover:grayscale"
+                  width={40}
+                  height={40}
+                  className="object-scale-down p-2 w-20 h-20 bg-white dark:bg-gray-700 rounded-full dark:grayscale grayscale-0 hover:grayscale dark:hover:grayscale-0"
                 />
               )}
-              <p className="text-center text-xs font-medium dark:text-light">
+              <p className="text-center mt-2 text-xs font-medium dark:text-light">
                 {skill.title}
               </p>
             </div>
