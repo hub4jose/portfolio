@@ -32,9 +32,12 @@ const Projects = async () => {
 
         <div className="mt-8 flex flex-col gap-6  w-full">
           {projects.map((project, index) => (
-            <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
+            <motion.div
+              key={project._id}
+              variants={fadeIn('up', 'spring', index * 0.5, 0.75)}
+            >
               <div
-                key={project._id}
+                //key={project._id}
                 className={`shadow-lg  rounded-2xl ${
                   project.slug === 'morent'
                     ? 'bg-[#5F9FFE]'
