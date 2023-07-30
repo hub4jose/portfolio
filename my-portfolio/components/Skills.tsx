@@ -6,24 +6,27 @@ const Skills = async () => {
   const skills = await getSkills();
   return (
     <div id="skills" className="w-full lg:h-screen  items-center">
-      <section className="max-w-6xl lg:h-full p-6 mx-auto flex flex-col justify-center items-center gap-10">
-        <h2 className="flex justify-center">My Skills</h2>
-        <div className="mt-5 justify-self-center grid grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-4 md:gap-6 items-center">
+      <section className="max-w-4xl lg:h-full p-6 mx-auto flex flex-col justify-center items-center gap-10">
+        <h2 className=" relative flex  justify-center">
+          My Skills{' '}
+          <span className="highlight w-[84px] border-b-[15px] mt-[18px] ml-14"></span>
+        </h2>
+        <div className="mt-5 justify-center flex flex-wrap gap-4 md:gap-6 items-center">
           {skills.map((skill) => (
             <div
               key={skill._id}
-              className=" flex flex-col justify-center  rounded-lg p-2 hover:scale-105 transition"
+              className=" flex flex-col justify-center  p-2 hover:scale-105 transition"
             >
               {skill.images && (
                 <Image
                   src={skill?.images[0]?.asset.url}
                   alt={skill?.title}
-                  width={80}
-                  height={80}
-                  className="object-cover rounded-full grayscale-0 hover:grayscale"
+                  width={40}
+                  height={40}
+                  className="object-scale-down p-2 w-20 h-20 bg-white dark:bg-gray-700 rounded-full dark:grayscale grayscale-0 hover:grayscale dark:hover:grayscale-0"
                 />
               )}
-              <p className="text-center text-xs font-medium dark:text-light">
+              <p className="text-center mt-2 text-xs font-medium dark:text-light">
                 {skill.title}
               </p>
             </div>

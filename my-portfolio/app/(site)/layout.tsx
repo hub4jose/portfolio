@@ -1,5 +1,6 @@
 import '../globals.css';
 import { Montserrat } from 'next/font/google';
+
 import Navbar from '../../components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -18,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`w-full mx-auto  ${montserrat.variable} font-mont bg-light dark:bg-dark`}
+        className={`w-full mx-auto  ${montserrat.variable} font-mont bg-light dark:bg-[#15141C]`}
       >
         <div className="relative min-h-screen">
           <Navbar />

@@ -10,7 +10,7 @@ import {
 const Footer = () => {
   return (
     <footer
-      className=" absolute inset-x-0 bottom-0 p-4 md:p-10  flex flex-col items-center justify-center bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500 
+      className=" absolute inset-x-0 bottom-0 p-4 md:p-10   flex flex-col items-center justify-center bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500 
     dark:bg-gradient-to-b dark:from-gray-900  dark:to-gray-800  w-full h-60 "
     >
       <div className="ml-4 flex flex-col gap-6">

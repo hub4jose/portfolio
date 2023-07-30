@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --before-line-width: 388px;
-  --before-line-md-width: 200px;
-  --before-line-sm-width: 260px;
+  --before-line-width: 480px;
+  --before-line-md-width: 320px;
+  --before-line-sm-width: 320px;
 }
 .highlight {
-  @apply absolute content-[""] w-[var(--before-line-sm-width)] sm:w-[var(--before-line-width)] border-b-[14px] border-b-orange-400;
+  @apply absolute content-[""]  -z-10  border-b-orange-400;
 }
 
 @layer base {
