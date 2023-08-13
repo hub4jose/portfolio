@@ -381,7 +381,10 @@ const Project = async ({ params }: Props) => {
 
           <div className="  mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
-              <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
+              <motion.div
+                key={project._id}
+                variants={fadeIn('up', 'spring', index * 0.5, 0.75)}
+              >
                 <Tilt
                   options={{
                     max: 45,
@@ -392,7 +395,6 @@ const Project = async ({ params }: Props) => {
                 >
                   <div className="relative w-full h-[300px]">
                     <Link
-                      key={project._id}
                       className=" flex flex-col justify-evenly  rounded-lg p-2 "
                       href={`projects/${project.slug}`}
                     >

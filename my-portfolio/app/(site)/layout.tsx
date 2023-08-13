@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`w-full mx-auto  ${montserrat.variable} font-mont bg-light dark:bg-[#15141C]`}
+        className={`w-full mx-auto  ${montserrat.variable} font-mont bg-white dark:bg-[#15141C]`}
       >
         <div className="relative min-h-screen">
           <Navbar />

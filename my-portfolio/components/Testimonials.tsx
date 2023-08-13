@@ -9,7 +9,7 @@ import { Testimonial } from '@/types';
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [select, setSelect] = useState(2);
-  const [effect, setEffect] = useState(false);
+  const [effect, setEffect] = useState(true);
 
   const getData = async () => {
     const testimonials = await getTestimonials();
@@ -64,34 +64,45 @@ const Testimonials = () => {
     }
 
     setSelect(2);
-    setEffect(true);
+    setEffect(!effect);
   };
 
   return (
-    <div id="testimonials" className="w-full   items-center">
-      <section className=" mt-40  max-w-3xl lg:h-[60%] px-4  mx-auto flex flex-col justify-between items-center  gap-20">
-        <h2 className="flex justify-center">
+    <div
+      id="testimonials"
+      className="w-full bg-light mt-24 p-6 md:p-20 dark:bg-[#15141C] items-center"
+    >
+      <section className="  lg:h-[60%] px-4  mx-auto flex flex-col justify-between items-center  gap-20">
+        <h2 className="flex justify-center max-w-3xl ">
           What they say about me
           <span className="highlight w-[100px] md:w-[144px] border-b-[15px] mt-[18px] mr-[52px] md:mr-[66px]"></span>
         </h2>
 
-        <div className="text-gray-600 md:h-[200px] font-[500] md:leading-10 dark:text-light ">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-          >
-            <path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" />
-          </svg>
-          <PortableText value={testimonials[select]?.comment} />
-          <div className="flex justify-end">
+        <div
+          className={`${
+            effect && 'testEffect delay-150'
+          } text-gray-600 md:h-[220px] max-w-3xl  font-[500] md:leading-10 dark:text-light `}
+        >
+          <div className=" ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="1em"
               viewBox="0 0 448 512"
             >
-              <path d="M448 296c0 66.3-53.7 120-120 120h-8c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H320c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72zm-256 0c0 66.3-53.7 120-120 120H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72z" />
+              <path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" />
             </svg>
+
+            <PortableText value={testimonials[select]?.comment} />
+
+            <div className="flex justify-end">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 448 512"
+              >
+                <path d="M448 296c0 66.3-53.7 120-120 120h-8c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H320c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72zm-256 0c0 66.3-53.7 120-120 120H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72z" />
+              </svg>
+            </div>
           </div>
         </div>
 
@@ -105,8 +116,12 @@ const Testimonials = () => {
                   : i % 2 !== 0
                   ? 'w-20 opacity-50'
                   : 'w-16 opacity-30'
-              } rounded-full overflow-hidden border cursor-pointer border-gray-300 hover:scale-105   transition duration-300 ease-in-out`}
-              onClick={() => handleSelection(i)}
+              } rounded-full overflow-hidden border cursor-pointer border-gray-300 hover:scale-105 ${
+                effect && 'transition duration-400 ease-in-out'
+              }`}
+              onClick={() => {
+                handleSelection(i);
+              }}
             >
               {testimonial.images && (
                 <Image
@@ -121,7 +136,7 @@ const Testimonials = () => {
           ))}
         </div>
 
-        <div className="-mt-14 flex flex-col items-center">
+        <div className="testEffect -mt-14 flex flex-col items-center">
           <div className="text-lg font-bold text-dark dark:text-light">
             {testimonials[select]?.name}
           </div>

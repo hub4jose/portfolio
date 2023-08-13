@@ -20,3 +20,17 @@
     scroll-behavior: smooth;
   } */
 }
+
+.testEffect {
+  animation: moveLeft 0.5s linear;
+}
+
+@keyframes moveLeft {
+  0% {
+    @apply ml-60;
+  }
+
+  100% {
+    @apply ml-0;
+  }
+}

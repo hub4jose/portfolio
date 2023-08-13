@@ -12,7 +12,7 @@ import { AnimateText } from '@/components/AnimateText';
 
 const Hero = () => {
   return (
-    <div className=" w-full h-screen items-center md:-mt-10">
+    <div className=" w-full h-screen items-center md:-mt-10 bg-light dark:bg-[#15141C]">
       <section className=" max-w-[1440px] p-8 lg:h-full mx-auto justify-center items-center grid md:grid-cols-2 gap-4">
         <div>
           <h1 className="text-sm font-bold tracking-[.5em] text-blue-600 dark:text-blue-400">

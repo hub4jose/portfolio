@@ -5,7 +5,10 @@ import { PortableText } from '@portabletext/react';
 const Services = async () => {
   const services = await getServices();
   return (
-    <div id="services" className="w-full lg:h-screen  items-center">
+    <div
+      id="services"
+      className="w-full lg:h-screen bg-light dark:bg-[#15141C] items-center"
+    >
       <section className="mt-20 md:mt-0 max-w-6xl lg:h-full  p-6 mx-auto flex flex-col justify-center items-center gap-10">
         <h2 className="relative flex justify-center">
           What service do I provide
